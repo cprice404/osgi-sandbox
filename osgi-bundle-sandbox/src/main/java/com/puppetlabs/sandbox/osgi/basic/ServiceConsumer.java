@@ -1,4 +1,4 @@
-package com.puppetlabs.sandbox.osgi;
+package com.puppetlabs.sandbox.osgi.basic;
 
 import org.apache.felix.scr.annotations.Activate;
 import org.apache.felix.scr.annotations.Component;
