@@ -1,8 +1,8 @@
 package com.puppetlabs.sandbox.osgi.http;
 
 import org.apache.felix.scr.annotations.*;
-import org.osgi.service.http.HttpService;
-import org.osgi.service.http.NamespaceException;
+//import org.osgi.service.http.HttpService;
+//import org.osgi.service.http.NamespaceException;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
