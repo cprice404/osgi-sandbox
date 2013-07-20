@@ -17,23 +17,29 @@
 
 
     <dependencies>
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr.annotations</artifactId>
-            <version>1.9.4</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.felix</groupId>-->
+            <!--<artifactId>org.apache.felix.scr.annotations</artifactId>-->
+            <!--<version>1.9.4</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.scr</artifactId>
-            <version>1.6.2</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.felix</groupId>-->
+            <!--<artifactId>org.apache.felix.scr</artifactId>-->
+            <!--<version>1.6.2</version>-->
+        <!--</dependency>-->
 
-        <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.http.jetty</artifactId>
-            <version>2.2.0</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.apache.felix</groupId>-->
+            <!--<artifactId>org.apache.felix.http.jetty</artifactId>-->
+            <!--<version>2.2.0</version>-->
+        <!--</dependency>-->
+
+        <!--<dependency>-->
+            <!--<groupId>com.carrotgarden.osgi</groupId>-->
+            <!--<artifactId>carrot-osgi-anno-scr-core</artifactId>-->
+            <!--<version>2.0.2</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -43,33 +49,53 @@
             <scope>provided</scope>
         </dependency>
 
-        <!--<dependency>-->
-            <!--<groupId>org.osgi</groupId>-->
-            <!--<artifactId>org.osgi.compendium</artifactId>-->
-            <!--<version>4.1.0</version>-->
+        <dependency>
+            <groupId>org.osgi</groupId>
+            <artifactId>org.osgi.compendium</artifactId>
+            <version>4.3.1</version>
             <!--<type>jar</type>-->
             <!--<scope>provided</scope>-->
-        <!--</dependency>-->
+        </dependency>
     </dependencies>
 
     <build>
         <plugins>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.felix</groupId>-->
+                <!--<artifactId>maven-scr-plugin</artifactId>-->
+                <!--<version>1.13.0</version>-->
+                <!--<executions>-->
+                    <!--<execution>-->
+                        <!--<id>generate-scr-descriptions</id>-->
+                        <!--<goals>-->
+                            <!--<goal>scr</goal>-->
+                        <!--</goals>-->
+                        <!--&lt;!&ndash;<configuration>&ndash;&gt;-->
+                        <!--&lt;!&ndash;<generateSeparateDescriptors>false</generateSeparateDescriptors>&ndash;&gt;-->
+                        <!--&lt;!&ndash;</configuration>&ndash;&gt;-->
+                    <!--</execution>-->
+                <!--</executions>-->
+            <!--</plugin>-->
+
+
             <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-scr-plugin</artifactId>
-                <version>1.13.0</version>
+                <groupId>com.carrotgarden.maven</groupId>
+                <artifactId>carrot-maven-scr-plugin</artifactId>
+                <version>3.0.4-SNAPSHOT</version>
+                <configuration>
+                    <enableInfoLogging>true</enableInfoLogging>
+                    <isIncludeEmptyDescriptor>false</isIncludeEmptyDescriptor>
+                </configuration>
                 <executions>
                     <execution>
-                        <id>generate-scr-descriptions</id>
                         <goals>
-                            <goal>scr</goal>
+                            <goal>clean</goal>
+                            <goal>generate</goal>
                         </goals>
-                        <!--<configuration>-->
-                        <!--<generateSeparateDescriptors>false</generateSeparateDescriptors>-->
-                        <!--</configuration>-->
                     </execution>
                 </executions>
             </plugin>
+
 
             <plugin>
                 <groupId>org.apache.felix</groupId>
@@ -87,6 +113,11 @@
                 <!--</Service-Component>-->
                 <!--</instructions>-->
                 <!--</configuration>-->
+                <configuration>
+                    <instructions>
+                        <Service-Component>OSGI-INF/service-component/*.xml</Service-Component>
+                    </instructions>
+                </configuration>
             </plugin>
         </plugins>
     </build>

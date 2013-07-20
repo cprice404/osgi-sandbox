@@ -1,8 +1,11 @@
 package com.puppetlabs.sandbox.osgi.http;
 
-import org.apache.felix.scr.annotations.*;
-import org.osgi.service.http.HttpService;
-import org.osgi.service.http.NamespaceException;
+//import org.apache.felix.scr.annotations.*;
+//import org.osgi.service.http.HttpService;
+//import org.osgi.service.http.NamespaceException;
+
+import org.osgi.service.component.annotations.Activate;
+import org.osgi.service.component.annotations.Component;
 
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
@@ -11,11 +14,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@Component(immediate = true)
-@Service(value = Servlet.class)
-@Properties({
-        @Property(name = "alias", value = "/hello2")
-})
+//@Component(immediate = true)
+//@Service(value = Servlet.class)
+//@Properties({
+//        @Property(name = "alias", value = "/hello2")
+//})
+@Component(service = { Servlet.class },
+        immediate = true,
+        property = {
+                "alias=/hello3",
+//                "service.pid=com.puppetlabs.sandbox.osgi.http.HelloWorldWebService"
+        })
 public class HelloWorldWebService extends HttpServlet {
 
 //    @Reference
