@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: osgi-clojure-sandbox
+Bundle-SymbolicName: com.puppetlabs.osgi-clojure-sandbox
+Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Export-Package: com.puppetlabs.osgi.clojure.sandbox
+Import-Package: javax.servlet;version="3.0.0",
+ clojure.lang;version="1.4.0",
+ clojure.java;version="1.4.0",
+ clojure.osgi;version="1.4.0"
+Bundle-Version: 0.0.1.SNAPSHOT
+FOOClojure-Require: com.puppetlabs.osgi.clojure.sandbox.hello
+Clojure-ActivatorNamespace: com.puppetlabs.osgi.clojure.sandbox.hello

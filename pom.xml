@@ -10,6 +10,7 @@
 
     <modules>
         <module>osgi-bundle-sandbox</module>
+        <module>osgi-clojure-sandbox</module>
         <module>embedded-karaf</module>
     </modules>
 
